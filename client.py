@@ -1,7 +1,7 @@
 from gradio_client import Client
 
 # Connect to the API with username and password
-client = Client("https://u9fcqbpgw98s75-7860.proxy.runpod.net/", auth=["aisecurity", "secret"])
+client = Client("https://u9fcqbpgw98s75-7860.proxy.runpod.net/", auth=["aisecurity", "Dhsyq&&W3*Ml7z9P"])
 
 # Open the file and load all the input prompts line by line to a list
 in_file = open('prompts.csv', 'r')
@@ -13,6 +13,7 @@ print("Total number of prompts to be processed: "+ str(len(In_Lines)))
 
 # Initialising the list to store the category and the prompt received from the api.
 Out_Lines=[]
+Error=[]
 
 count = 0
 error = 0
@@ -31,20 +32,26 @@ for line in In_Lines:
     except:
         error = error+1
         print(f"Error at line: {count}")
-        print(line)    
+        Error.append(line)    
 
 # Write all the collected output to a file.
 out_file = open('output.csv', 'a')
 out_file.writelines(Out_Lines)
 out_file.close()
 
+# Write all error prompts
+
+error_file = open('error.csv', 'a')
+error_file.writelines(Error)
+error_file.close()
 
 print(f"Total number of prompts processed: {len(Out_Lines)} successfully.")
 print(f"Total number of errornous prompts: {error}.")
 
 '''
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Sample output from the api.
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 {
     'headers': 
         [
@@ -61,5 +68,5 @@ Sample output from the api.
     'metadata': 
         None
 }
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 '''
