@@ -8,6 +8,6 @@ How to use:
 
 2. Run client.py.
 
-3. client.py calls the api to determine the classification of the prompt and appends the classification to the prompt and saves it in the output.csv file.
+3. client.py calls the api to determine the classification of the prompt and appends the classification to the prompt and saves it in the output.csv file and saves error prompts to error.csv
 
 format: [classification] '|' [original prompt]
