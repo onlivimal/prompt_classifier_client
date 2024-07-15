@@ -1,7 +1,7 @@
 from gradio_client import Client
 
 # Connect to the API with username and password
-client = Client("https://u9fcqbpgw98s75-7860.proxy.runpod.net/", auth=["aisecurity", "Dhsyq&&W3*Ml7z9P"])
+client = Client("https://u9fcqbpgw98s75-7860.proxy.runpod.net/", auth=["aisecurity", "secret"])
 
 # Open the file and load all the input prompts line by line to a list
 in_file = open('prompts.csv', 'r')
